@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Tsv" />
         <module name="tsv" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="tsv" target="1.8" />
+      <module name="Tsv" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

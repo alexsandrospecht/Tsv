@@ -1,5 +1,6 @@
 import engine.Field;
 import engine.FieldWrapper;
+import enums.OperationType;
 import helpers.TransformationHelper;
 
 import java.io.BufferedWriter;
@@ -19,8 +20,15 @@ public class Tsv {
 
     private static StringBuilder sb = new StringBuilder();
 
+    private static OperationType type;
+
+    /**
+     * args[0] INPUT_FILE
+     * args[1] TEMPLATE_FILE
+     */
     public static void main(String[] args) throws Exception {
 
+        type = FieldWrapper.loadOperationType(loadFile(args[1]));
         fields = FieldWrapper.loadFields(loadFile(args[1]));
 
         fields.forEach(f -> {
@@ -30,7 +38,7 @@ public class Tsv {
 
         sb.append("\n");
 
-        TransformationHelper.transform(sb, loadFile(args[0]), fields);
+        TransformationHelper.transform(sb, loadFile(args[0]), type, fields);
 
         File file = new File("./saida.csv");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {

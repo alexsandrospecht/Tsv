@@ -1,6 +1,7 @@
 package helpers;
 
 import engine.Field;
+import enums.OperationType;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -13,15 +14,20 @@ public class TransformationHelper {
     public static final String COMMA = ",";
     public static final String CRLF = "\r\n";
 
-    public static StringBuilder transform(StringBuilder sb, Stream<String> stream, List<Field> fields) {
+    public static StringBuilder transform(StringBuilder sb, Stream<String> stream, OperationType type, List<Field> fields) {
         stream.forEach(l -> {
             int lineLenght = l.length();
 
             fields.forEach(f -> {
                 int start = f.getStart();
-                int end = f.getStart() + f.getSize();
+                int end = 0;
+                if (OperationType.USER_DEFINED.equals(type)) {
+                    end = f.getSize();
+                } else {
+                    end = f.getStart() + f.getSize();
+                }
 
-                if (lineLenght > start && lineLenght > end) {
+                if (lineLenght > start && lineLenght >= end) {
                     appendValue(sb, l.substring(f.getStart(), end));
                 }
             });
