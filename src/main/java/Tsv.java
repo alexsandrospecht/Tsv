@@ -17,10 +17,9 @@ import static helpers.LoaderHelper.loadFile;
 public class Tsv {
 
     private static List<Field> fields = new ArrayList<>();
-
     private static StringBuilder sb = new StringBuilder();
-
     private static OperationType type;
+    public  static final String COMMA = ",";
 
     /**
      * args[0] INPUT_FILE
@@ -33,12 +32,12 @@ public class Tsv {
 
         fields.forEach(f -> {
             sb.append(f.getName());
-            sb.append(",");
+            sb.append(COMMA);
         });
 
         sb.append("\n");
 
-        TransformationHelper.transform(sb, loadFile(args[0]), type, fields);
+        TransformationHelper.transform(sb, loadFile(args[0]), type, COMMA, fields);
 
         File file = new File("./saida.csv");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {

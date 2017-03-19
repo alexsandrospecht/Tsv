@@ -11,10 +11,9 @@ import java.util.stream.Stream;
  */
 public class TransformationHelper {
 
-    public static final String COMMA = ",";
     public static final String CRLF = "\r\n";
 
-    public static StringBuilder transform(StringBuilder sb, Stream<String> stream, OperationType type, List<Field> fields) {
+    public static StringBuilder transform(StringBuilder sb, Stream<String> stream, OperationType type, String separator, List<Field> fields) {
         stream.forEach(l -> {
             int lineLenght = l.length();
 
@@ -28,7 +27,7 @@ public class TransformationHelper {
                 }
 
                 if (lineLenght > start && lineLenght >= end) {
-                    appendValue(sb, l.substring(f.getStart(), end));
+                    appendValue(sb, l.substring(f.getStart(), end), separator);
                 }
             });
 
@@ -37,8 +36,8 @@ public class TransformationHelper {
         return sb;
     }
 
-    private static void appendValue(StringBuilder sb, String value) {
+    private static void appendValue(StringBuilder sb, String value, String separator) {
         sb.append(value);
-        sb.append(COMMA);
+        sb.append(separator);
     }
 }
