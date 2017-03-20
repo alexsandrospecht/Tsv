@@ -1,48 +1,40 @@
-import engine.Field;
-import engine.FieldWrapper;
-import enums.OperationType;
+import engine.ParameterDTO;
 import helpers.TransformationHelper;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.List;
-
-import static helpers.LoaderHelper.loadFile;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * Created by alexsandrospecht on 16/03/17.
  */
-public class Tsv {
-
-    private static List<Field> fields = new ArrayList<>();
-    private static StringBuilder sb = new StringBuilder();
-    private static OperationType type;
-    public  static final String COMMA = ",";
+public class Tsv extends Application {
 
     /**
      * args[0] INPUT_FILE
      * args[1] TEMPLATE_FILE
+     * args[2] OUTPUT_FILE
      */
     public static void main(String[] args) throws Exception {
+        if (args.length == 0) {
+            Application.launch(args);
+        } else {
+            String input = args[0];
+            String template = args[1];
+            String output = args[2];
 
-        type = FieldWrapper.loadOperationType(loadFile(args[1]));
-        fields = FieldWrapper.loadFields(loadFile(args[1]));
-
-        fields.forEach(f -> {
-            sb.append(f.getName());
-            sb.append(COMMA);
-        });
-
-        sb.append("\n");
-
-        TransformationHelper.transform(sb, loadFile(args[0]), type, COMMA, fields);
-
-        File file = new File("./saida.csv");
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write(sb.toString());
+            ParameterDTO params = new ParameterDTO(input, template, output);
+            TransformationHelper.transform(params);
         }
     }
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("pages/home.fxml"));
+
+        primaryStage.setTitle("TSV - TXT to CSV Transformer");
+        primaryStage.setScene(new Scene(root, 900, 185));
+        primaryStage.show();
+    }
 }
