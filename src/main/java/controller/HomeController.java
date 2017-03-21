@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -53,6 +55,11 @@ public class HomeController implements Initializable {
             public void handle(ActionEvent event) {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Open Resource File");
+                fileChooser.setInitialDirectory(new File("."));
+
+                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+                fileChooser.getExtensionFilters().add(extFilter);
+
                 File selectedFile = fileChooser.showOpenDialog(btn_input.getScene().getWindow());
 
                 if (selectedFile != null) {
@@ -67,6 +74,11 @@ public class HomeController implements Initializable {
             public void handle(ActionEvent event) {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Open Resource File");
+                fileChooser.setInitialDirectory(new File("."));
+
+                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+                fileChooser.getExtensionFilters().add(extFilter);
+
                 File selectedFile = fileChooser.showOpenDialog(btn_template.getScene().getWindow());
 
                 if (selectedFile != null) {
@@ -81,7 +93,16 @@ public class HomeController implements Initializable {
             public void handle(ActionEvent event) {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Open Resource File");
-                File selectedFile = fileChooser.showOpenDialog(btn_output.getScene().getWindow());
+                fileChooser.setInitialDirectory(new File("."));
+                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
+                fileChooser.getExtensionFilters().add(extFilter);
+
+                //Show save file dialog
+                File selectedFile = fileChooser.showSaveDialog(btn_output.getScene().getWindow());
+
+                if(selectedFile != null){
+                    saveFile(selectedFile);
+                }
 
                 if (selectedFile != null) {
                     output = selectedFile.getAbsolutePath();
@@ -115,6 +136,13 @@ public class HomeController implements Initializable {
                 }
             }
         });
+    }
+
+    private void saveFile(File file){
+        try {
+            new FileWriter(file).close();
+        } catch (IOException ex) {
+        }
     }
 
 }

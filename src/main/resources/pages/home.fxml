@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.0" minWidth="10.0" prefWidth="65.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="707.0" />
@@ -39,22 +39,22 @@
             <Insets left="10.0" />
          </GridPane.margin>
       </TextField>
-      <Button fx:id="btn_input" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" text="Select" GridPane.columnIndex="2">
+      <Button fx:id="btn_input" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" styleClass="select" stylesheets="@../css/style.css" text="Select" GridPane.columnIndex="2">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="btn_template" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <Button fx:id="btn_template" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" styleClass="select" stylesheets="@../css/style.css" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="btn_output" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="2">
+      <Button fx:id="btn_output" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" styleClass="select" stylesheets="@../css/style.css" text="Select" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="btn_transform" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" text="Transform" GridPane.columnIndex="2" GridPane.rowIndex="3">
+      <Button fx:id="btn_transform" mnemonicParsing="false" prefHeight="27.0" prefWidth="105.0" styleClass="transform" stylesheets="@../css/style.css" text="Transform" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin>
