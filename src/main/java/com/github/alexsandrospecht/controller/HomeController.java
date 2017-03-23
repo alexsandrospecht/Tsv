@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -18,6 +17,9 @@ import java.util.ResourceBundle;
 
 import static com.github.alexsandrospecht.helpers.AlertHelper.errorAlert;
 import static com.github.alexsandrospecht.helpers.AlertHelper.sucessAlert;
+import static com.github.alexsandrospecht.helpers.FileHelper.chooseFile;
+import static com.github.alexsandrospecht.helpers.FileHelper.selectOutputFile;
+
 
 /**
  * Created by alexsandrospecht on 19/03/17.
@@ -49,20 +51,12 @@ public class HomeController implements Initializable {
     @FXML
     private Button btn_transform;
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         btn_input.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                FileChooser fileChooser = new FileChooser();
-                fileChooser.setTitle("Open Resource File");
-                fileChooser.setInitialDirectory(new File("."));
-
-                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
-                fileChooser.getExtensionFilters().add(extFilter);
-
-                File selectedFile = fileChooser.showOpenDialog(btn_input.getScene().getWindow());
+                final File selectedFile = chooseFile(btn_input.getScene().getWindow());
 
                 if (selectedFile != null) {
                     input = selectedFile.getAbsolutePath();
@@ -74,14 +68,7 @@ public class HomeController implements Initializable {
         btn_template.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                FileChooser fileChooser = new FileChooser();
-                fileChooser.setTitle("Open Resource File");
-                fileChooser.setInitialDirectory(new File("."));
-
-                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
-                fileChooser.getExtensionFilters().add(extFilter);
-
-                File selectedFile = fileChooser.showOpenDialog(btn_template.getScene().getWindow());
+                final File selectedFile = chooseFile(btn_template.getScene().getWindow());
 
                 if (selectedFile != null) {
                     template = selectedFile.getAbsolutePath();
@@ -93,14 +80,7 @@ public class HomeController implements Initializable {
         btn_output.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                FileChooser fileChooser = new FileChooser();
-                fileChooser.setTitle("Open Resource File");
-                fileChooser.setInitialDirectory(new File("."));
-                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
-                fileChooser.getExtensionFilters().add(extFilter);
-
-                //Show save file dialog
-                File selectedFile = fileChooser.showSaveDialog(btn_output.getScene().getWindow());
+                final File selectedFile = selectOutputFile(btn_output.getScene().getWindow());
 
                 if(selectedFile != null){
                     saveFile(selectedFile);
