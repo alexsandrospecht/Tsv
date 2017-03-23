@@ -6,8 +6,8 @@
 
 ### COMO USAR
 
- * Baixe o projeto `$ git clone https://github.com/alexsandrospecht/Tsv `
- * Acesse a pasta criada `$ cd Tsv`
+ * Baixe o projeto `$ git clone https://github.com/alexsandrospecht/com.github.alexsandrospecht.Tsv `
+ * Acesse a pasta criada `$ cd com.github.alexsandrospecht.Tsv`
  * Faça o build `# mvn clean install`
  * Coloque o jar `tsv-1.0.jar` criado dentro da pasta `/target` onde desejar
  * Crie um template para transformar seu arquivo, como o exemplo abaixo:

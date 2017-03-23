@@ -1,4 +1,4 @@
-package engine;
+package com.github.alexsandrospecht.engine;
 
 /**
  * Created by alexsandrospecht on 17/03/17.

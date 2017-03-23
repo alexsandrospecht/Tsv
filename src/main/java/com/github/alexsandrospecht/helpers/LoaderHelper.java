@@ -1,4 +1,4 @@
-package helpers;
+package com.github.alexsandrospecht.helpers;
 
 import java.io.File;
 import java.nio.file.Files;

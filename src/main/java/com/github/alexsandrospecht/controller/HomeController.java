@@ -1,12 +1,11 @@
-package controller;
+package com.github.alexsandrospecht.controller;
 
-import engine.ParameterDTO;
-import helpers.TransformationHelper;
+import com.github.alexsandrospecht.engine.ParameterDTO;
+import com.github.alexsandrospecht.helpers.TransformationHelper;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
@@ -16,6 +15,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static com.github.alexsandrospecht.helpers.AlertHelper.errorAlert;
+import static com.github.alexsandrospecht.helpers.AlertHelper.sucessAlert;
 
 /**
  * Created by alexsandrospecht on 19/03/17.
@@ -114,12 +116,8 @@ public class HomeController implements Initializable {
         btn_transform.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 if (input == null || output == null || template == null) {
-                    alert.setTitle("Error");
-                    alert.setHeaderText(null);
-                    alert.setContentText("All parameters must be informed!");
-                    alert.showAndWait();
+                    errorAlert("All parameters must be informed!");
                     return;
                 }
 
@@ -127,11 +125,9 @@ public class HomeController implements Initializable {
                 try {
                     TransformationHelper.transform(params);
 
-                    alert.setTitle("Sucess");
-                    alert.setHeaderText(null);
-                    alert.setContentText("TXT to CSV performed!");
-                    alert.showAndWait();
+                    sucessAlert("TXT to CSV performed!");
                 } catch (Exception e) {
+                    errorAlert(e.getMessage());
                     e.printStackTrace();
                 }
             }
@@ -142,6 +138,8 @@ public class HomeController implements Initializable {
         try {
             new FileWriter(file).close();
         } catch (IOException ex) {
+            errorAlert(ex.getMessage());
+            ex.printStackTrace();
         }
     }
 

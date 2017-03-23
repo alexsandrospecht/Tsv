@@ -1,9 +1,9 @@
-package helpers;
+package com.github.alexsandrospecht.helpers;
 
-import engine.Field;
-import engine.FieldWrapper;
-import engine.ParameterDTO;
-import enums.OperationType;
+import com.github.alexsandrospecht.engine.Field;
+import com.github.alexsandrospecht.engine.FieldWrapper;
+import com.github.alexsandrospecht.engine.ParameterDTO;
+import com.github.alexsandrospecht.enums.OperationType;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static helpers.LoaderHelper.loadFile;
+import static com.github.alexsandrospecht.helpers.LoaderHelper.loadFile;
 
 /**
  * Created by alexsandrospecht on 17/03/17.

@@ -1,5 +1,7 @@
-import engine.ParameterDTO;
-import helpers.TransformationHelper;
+package com.github.alexsandrospecht;
+
+import com.github.alexsandrospecht.engine.ParameterDTO;
+import com.github.alexsandrospecht.helpers.TransformationHelper;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,7 +33,7 @@ public class Tsv extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("pages/home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/pages/home.fxml"));
 
         primaryStage.setTitle("TSV - TXT to CSV Transformer");
         primaryStage.setScene(new Scene(root, 900, 185));

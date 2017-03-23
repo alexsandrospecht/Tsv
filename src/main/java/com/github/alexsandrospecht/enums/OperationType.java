@@ -1,4 +1,4 @@
-package enums;
+package com.github.alexsandrospecht.enums;
 
 /**
  * Created by alexsandrospecht on 19/03/17.

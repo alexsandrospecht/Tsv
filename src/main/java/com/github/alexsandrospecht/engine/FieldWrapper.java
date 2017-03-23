@@ -1,6 +1,6 @@
-package engine;
+package com.github.alexsandrospecht.engine;
 
-import enums.OperationType;
+import com.github.alexsandrospecht.enums.OperationType;
 
 import java.util.ArrayList;
 import java.util.List;
