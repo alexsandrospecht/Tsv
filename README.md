@@ -28,13 +28,11 @@ TXT TO CSV TRANSFORMER
 
 ### Modo gráfico
  * Execute o jar.
- * Será apresentada a tela abaixo, baixa preencher os campos e clicar em `Transform`.
+ * Será apresentada a tela abaixo, basta preencher os campos e clicar em `Transform`.
  
  <p align="center">
  <img src="https://github.com/alexsandrospecht/Tsv/blob/master/images/tsv.png"> </br>
  </p>
-
-
 
 ### OPERATIONS
   * O TSV suporta 2 operações diferentes:
