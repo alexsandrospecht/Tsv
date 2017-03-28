@@ -15,7 +15,7 @@ public class TsvTests {
 
     private final static String INPUT = new File(TsvTests.class.getResource("/INPUT_1.txt").getFile()).getAbsolutePath();
     private final static String TEMPLATE = new File(TsvTests.class.getResource("/TEMPLATE.txt").getFile()).getAbsolutePath();
-    private final static String OUTPUT = "saida.csv";
+    private final static String OUTPUT = System.getProperty("java.io.tmpdir") + "saida.csv";
 
     @Test
     public void fileTrasform() throws Exception {
