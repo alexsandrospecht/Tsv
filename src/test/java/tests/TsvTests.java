@@ -13,16 +13,30 @@ import static org.assertj.core.api.Assertions.*;
  */
 public class TsvTests {
 
-    private final static String INPUT = new File(TsvTests.class.getResource("/INPUT_1.txt").getFile()).getAbsolutePath();
-    private final static String TEMPLATE = new File(TsvTests.class.getResource("/TEMPLATE.txt").getFile()).getAbsolutePath();
     private final static String OUTPUT = System.getProperty("java.io.tmpdir") + "saida.csv";
 
     @Test
-    public void fileTrasform() throws Exception {
+    public void fileTrasformInput1() throws Exception {
+        final String INPUT = new File(TsvTests.class.getResource("/input_1/INPUT_1.txt").getFile()).getAbsolutePath();
+        final String TEMPLATE = new File(TsvTests.class.getResource("/input_1/TEMPLATE_1.txt").getFile()).getAbsolutePath();
+
         Tsv.main(new String[]{INPUT, TEMPLATE, OUTPUT});
 
         File actualFile = new File(OUTPUT);
-        File expectedFile = new File(TsvTests.class.getResource("/SAIDA_1.csv").getFile());
+        File expectedFile = new File(TsvTests.class.getResource("/input_1/SAIDA_1.csv").getFile());
+
+        assertThat(actualFile).hasSameContentAs(expectedFile);
+    }
+
+    @Test
+    public void fileTrasformInput2() throws Exception {
+        final String INPUT = new File(TsvTests.class.getResource("/input_2/INPUT_2.txt").getFile()).getAbsolutePath();
+        final String TEMPLATE = new File(TsvTests.class.getResource("/input_2/TEMPLATE_2.txt").getFile()).getAbsolutePath();
+
+        Tsv.main(new String[]{INPUT, TEMPLATE, OUTPUT});
+
+        File actualFile = new File(OUTPUT);
+        File expectedFile = new File(TsvTests.class.getResource("/input_2/SAIDA_2.csv").getFile());
 
         assertThat(actualFile).hasSameContentAs(expectedFile);
     }
