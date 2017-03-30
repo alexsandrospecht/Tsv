@@ -10,7 +10,10 @@ TXT TO CSV TRANSFORMER
 </p>
 
 ### COMO USAR
+ 
+ * Baixe a ultima versão no [link](https://drive.google.com/drive/folders/0B4ssNOXHf1khMmNCTWRKUHZTY1k)
 
+Caso prefira: 
  * Baixe o projeto `$ git clone https://github.com/alexsandrospecht/Tsv `
  * Acesse a pasta criada `$ cd Tsv`
  * Faça o build `# mvn clean install`
