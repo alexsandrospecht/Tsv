@@ -22,12 +22,16 @@ public class FieldWrapper {
             if (!s.contains("OPERATION=")) {
                 String[] retorno = s.split(SEPARATOR);
 
-                if (retorno.length == 3) {
+                if (retorno.length >= 3 && retorno.length <=4) {
                     String name = retorno[0];
                     int start = parseInt(retorno[1]);
                     int end = parseInt(retorno[2]);
 
-                    fields.add(new Field(name, start, end));
+                    boolean stringfy = false;
+                    if (retorno.length > 3)
+                        stringfy = "STRINGFY".equals(retorno[3]);
+
+                    fields.add(new Field(name, start, end, stringfy));
                 }
             }
         });

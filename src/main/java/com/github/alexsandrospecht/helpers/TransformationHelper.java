@@ -51,7 +51,10 @@ public class TransformationHelper {
                 }
 
                 if (lineLenght > start && lineLenght >= end) {
-                    appendValue(sb, l.substring(f.getStart(), end), separator);
+                    if (f.isStringfy())
+                        appendValue(sb, '"' + l.substring(f.getStart(), end) + '"', separator);
+                    else
+                        appendValue(sb, l.substring(f.getStart(), end), separator);
                 }
             });
 
