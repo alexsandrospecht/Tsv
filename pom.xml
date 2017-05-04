@@ -6,7 +6,7 @@
 
     <groupId>com.github.alexsandrospecht</groupId>
     <artifactId>tsv</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
 
     <dependencies>
         <dependency>
