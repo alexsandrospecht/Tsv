@@ -3,9 +3,9 @@
 TXT TO CSV TRANSFORMER
 </p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <p align="center">
+<a href="/LICENSE"><img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a><br>
 <b> Easy way to convert Flat Files to CSV with Java</b>
 </p>
 
