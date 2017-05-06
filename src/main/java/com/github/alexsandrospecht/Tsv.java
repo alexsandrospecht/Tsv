@@ -28,7 +28,7 @@ public class Tsv extends Application {
             String output = args[2];
             String separator = args[3];
 
-            ParameterDTO params = new ParameterDTO(input, /template, output, separator);
+            ParameterDTO params = new ParameterDTO(input, template, output, separator);
             TransformationHelper.transform(params);
         }
     }
