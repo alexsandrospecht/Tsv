@@ -20,7 +20,7 @@ public class TsvTests {
         final String INPUT = new File(TsvTests.class.getResource("/input_1/INPUT_1.txt").getFile()).getAbsolutePath();
         final String TEMPLATE = new File(TsvTests.class.getResource("/input_1/TEMPLATE_1.txt").getFile()).getAbsolutePath();
 
-        Tsv.main(new String[]{INPUT, TEMPLATE, OUTPUT});
+        Tsv.main(new String[]{INPUT, TEMPLATE, OUTPUT, ""});
 
         File actualFile = new File(OUTPUT);
         File expectedFile = new File(TsvTests.class.getResource("/input_1/SAIDA_1.csv").getFile());
@@ -33,7 +33,7 @@ public class TsvTests {
         final String INPUT = new File(TsvTests.class.getResource("/input_2/INPUT_2.txt").getFile()).getAbsolutePath();
         final String TEMPLATE = new File(TsvTests.class.getResource("/input_2/TEMPLATE_2.txt").getFile()).getAbsolutePath();
 
-        Tsv.main(new String[]{INPUT, TEMPLATE, OUTPUT});
+        Tsv.main(new String[]{INPUT, TEMPLATE, OUTPUT, ";"});
 
         File actualFile = new File(OUTPUT);
         File expectedFile = new File(TsvTests.class.getResource("/input_2/SAIDA_2.csv").getFile());

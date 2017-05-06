@@ -11,10 +11,13 @@ public class ParameterDTO {
 
     private String output;
 
-    public ParameterDTO(String input, String template, String output) {
+    private String separator;
+
+    public ParameterDTO(String input, String template, String output, String separator) {
         this.input = input;
         this.template = template;
         this.output = output;
+        this.separator = separator == "" ? "," : separator;
     }
 
     public String getInput() {
@@ -28,4 +31,6 @@ public class ParameterDTO {
     public String getOutput() {
         return output;
     }
+
+    public String getSeparator() { return separator; }
 }

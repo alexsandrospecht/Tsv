@@ -51,6 +51,9 @@ public class HomeController implements Initializable {
     @FXML
     private Button btn_transform;
 
+    @FXML
+    private TextField tf_separator;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         btn_input.setOnAction(new EventHandler<ActionEvent>() {
@@ -101,7 +104,7 @@ public class HomeController implements Initializable {
                     return;
                 }
 
-                ParameterDTO params = new ParameterDTO(input, template, output);
+                ParameterDTO params = new ParameterDTO(input, template, output, tf_separator.getText());
                 try {
                     TransformationHelper.transform(params);
 

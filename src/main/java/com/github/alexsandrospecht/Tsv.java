@@ -17,6 +17,7 @@ public class Tsv extends Application {
      * args[0] INPUT_FILE
      * args[1] TEMPLATE_FILE
      * args[2] OUTPUT_FILE
+     * args[3] SEPARATOR
      */
     public static void main(String[] args) throws Exception {
         if (args.length == 0) {
@@ -25,8 +26,9 @@ public class Tsv extends Application {
             String input = args[0];
             String template = args[1];
             String output = args[2];
+            String separator = args[3];
 
-            ParameterDTO params = new ParameterDTO(input, template, output);
+            ParameterDTO params = new ParameterDTO(input, /template, output, separator);
             TransformationHelper.transform(params);
         }
     }

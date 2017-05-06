@@ -17,7 +17,6 @@ import static com.github.alexsandrospecht.helpers.FileHelper.loadStreamFromFile;
 public class TransformationHelper {
 
     public static final String CRLF = "\r\n";
-    public static final String COMMA = ",";
     private static final String DEFAULT_FILE = "./saida.csv";
 
     public static void transform(ParameterDTO params) throws Exception {
@@ -27,11 +26,11 @@ public class TransformationHelper {
 
         fields.forEach(f -> {
             sb.append(f.getName());
-            sb.append(COMMA);
+            sb.append(params.getSeparator());
         });
         sb.append(CRLF);
 
-        TransformationHelper.cut(sb, loadStreamFromFile(params.getInput()), type, COMMA, fields);
+        TransformationHelper.cut(sb, loadStreamFromFile(params.getInput()), type, params.getSeparator(), fields);
 
         final String filename = params.getOutput() == null ? DEFAULT_FILE : params.getOutput();
         FileHelper.writeFile(filename, sb);
