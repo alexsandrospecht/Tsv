@@ -1,13 +1,14 @@
 <p align="center">
 <img src="https://github.com/alexsandrospecht/Tsv/blob/master/images/logo.png"> </br>
 TXT TO CSV TRANSFORMER
+<br><b> Easy way to convert Flat Files to CSV with Java</b>
 </p>
 
 
-<p align="center">
-<a href="/LICENSE"><img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a><br>
-<b> Easy way to convert Flat Files to CSV with Java</b>
-</p>
+<a href="/LICENSE"><img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
+[![Build Status](https://travis-ci.org/alexsandrospecht/Tsv.svg?branch=master)](https://travis-ci.org/alexsandrospecht/Tsv)
+
+
 
 ### COMO USAR
  
